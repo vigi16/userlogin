@@ -1085,8 +1085,9 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #333;
-  background-color: #fff;
+  color: #ecff33;
+  background-color: #B38008;
+  background-image: url("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcShzBvVwfv2vBru8JCJ8QsLaRKeB35cEjLYEg71pOZ8oVSd3tXhUg");
 }
 input,
 button,
@@ -1097,7 +1098,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  color: #ecff33;
   text-decoration: none;
 }
 a:hover,
@@ -4496,7 +4497,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
+  background-color: #64dff9;
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {

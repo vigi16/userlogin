@@ -13,12 +13,12 @@ html(lang='em')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='/') NodeAuth
+          a.navbar-brand(href='/') Mytour
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav
             if user
-             li(class=(title === 'Members' ? 'active' : ''))
-               a(href='/') Members
+             li(class=(title === 'MyTour' ? 'active' : ''))
+               a(href='/') MyTour
             if !user
              li(class=(title === 'Register' ? 'active' : ''))
                a(href='/users/register') Register

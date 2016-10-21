@@ -6,10 +6,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session=require('express-session');
+var randtoken = require('rand-token');
 var passport=require('passport');
 var LocalStrategy=require('passport-local').Strategy;
+var BearerStrategy = require('passport-http-bearer').Strategy;
 var multer=require('multer');
 var upload=multer({dest:'./uploads'});
+var jwt = require('jwt-simple');
 var flash=require('connect-flash');
 var bcrypt=require('bcrypt');
 var mongo=require('mongodb');
@@ -20,6 +23,9 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,6 +41,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
 //Handle session
 app.use(session({
   secret:'secret',
@@ -45,6 +53,18 @@ app.use(session({
 //Handle Passport
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+///
+passport.use(new BearerStrategy(
+  function(token, done) {
+    User.findOne({ token: token }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      return done(null, user, { scope: 'all' });
+    });
+  }
+));
 
 //Validatorapp.use(expressValidator({
 app.use(expressValidator({

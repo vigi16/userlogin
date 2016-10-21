@@ -1,11 +1,9 @@
 var mongoose=require('mongoose');
 var bcrypt=require('bcrypt');
-
-
-mongoose.connect('mongodb://localhost/nodeauth');
+var randtoken = require('rand-token');
+mongoose.connect('mongodb://localhost/t');
 
 var db=mongoose.connection;
-
 var UserSchema=mongoose.Schema({
 	username:{
 		type:String,
@@ -17,11 +15,22 @@ var UserSchema=mongoose.Schema({
 	email:{type:String}
 	,name:{type:String},
 	profileimage:{type:String}
-
+	
 });
+
+
+
+
 
 var User=module.exports=mongoose.model('User',UserSchema);
 
+
+
+
+
+module.exports.generateToken=function(newUser,callback){
+	newUser.save(callback);
+}
 module.exports.getUserById=function(id,callback){
 	User.findById(id,callback);
 }
@@ -44,5 +53,7 @@ module.exports.createUser=function(newUser,callback){
         	newUser.save(callback);
     	});
 });
-	
 }
+
+
+	

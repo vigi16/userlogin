@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "api-token": "^0.1.1",
     "bcrypt": "^0.8.6",
     "body-parser": "~1.13.2",
     "connect-flash": "*",
@@ -16,13 +17,17 @@
     "express-session": "^1.13.0",
     "express-validator": "*",
     "jade": "~1.11.0",
+    "jwt-simple": "^0.5.0",
     "mongodb": "*",
     "mongoose": "*",
     "morgan": "~1.6.1",
     "multer": "*",
     "passport": "*",
     "passport-http": "*",
+    "passport-http-bearer": "^1.0.1",
+    "passport-jwt": "^2.1.0",
     "passport-local": "*",
+    "rand-token": "^0.2.1",
     "serve-favicon": "~2.3.0"
   }
 }
